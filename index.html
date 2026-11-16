@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f1ea">
+  <title>于睿&amp;子瑜 婚宴出席回覆</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4ece3;
+      --paper: #fffdf8;
+      --ink: #3b2c2c;
+      --muted: #7a6860;
+      --rose: #8a3142;
+      --rose-deep: #6d2433;
+      --gold: #b08958;
+      --gold-soft: #e8d5b5;
+      --line: #eadccb;
+      --ok: #3f6b52;
+      --err: #9c2b2b;
+      --shadow: 0 16px 40px rgba(80, 40, 40, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Noto Serif TC", "Songti TC", serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top, #fbf6ef 0, var(--bg) 42%);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      pointer-events: none;
+      opacity: 0.18;
+      background: radial-gradient(circle, #d9b8a0 0, transparent 70%);
+      z-index: 0;
+    }
+    body::before { top: -80px; left: -80px; }
+    body::after { bottom: -80px; right: -80px; }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      width: min(640px, calc(100% - 1.6rem));
+      margin: 0 auto;
+      padding: 2rem 0 3.5rem;
+    }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--gold-soft);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      padding: 2rem 1.35rem 2.2rem;
+    }
+    .flourish {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--gold);
+      letter-spacing: 0.35em;
+      font-size: 0.7rem;
+      margin: 0.3rem 0 1rem;
+    }
+    .flourish::before, .flourish::after {
+      content: "";
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .flourish::after { background: linear-gradient(90deg, var(--gold), transparent); }
+    .eyebrow {
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-style: italic;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+      font-weight: 700;
+      font-size: clamp(1.7rem, 6vw, 2.15rem);
+      letter-spacing: 0.12em;
+      margin: 0.35rem 0 0.2rem;
+      line-height: 1.35;
+    }
+    .date-hero {
+      text-align: center;
+      color: var(--rose);
+      font-weight: 600;
+      margin: 0.35rem 0 1.2rem;
+    }
+    .invite {
+      color: var(--muted);
+      text-align: justify;
+      margin: 0 0 1.4rem;
+      font-size: 0.98rem;
+    }
+    .event {
+      background: #faf6f0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem 1rem 0.85rem;
+      margin-bottom: 1.6rem;
+    }
+    .event dl { margin: 0; }
+    .event div {
+      display: grid;
+      grid-template-columns: 4.6rem 1fr;
+      gap: 0.25rem 0.7rem;
+      padding: 0.55rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .event div:first-child { border-top: 0; padding-top: 0.15rem; }
+    dt {
+      margin: 0;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 0.88rem;
+    }
+    dd { margin: 0; }
+    .addr { display: block; color: var(--muted); font-size: 0.9rem; margin-top: 0.15rem; }
+    .note { display: block; color: var(--muted); font-size: 0.82rem; margin-top: 0.2rem; }
+    .map-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      color: var(--rose-deep);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+    .map-link:hover, .map-link:focus { color: var(--rose); }
+    h2 {
+      text-align: center;
+      font-size: 1.15rem;
+      letter-spacing: 0.18em;
+      margin: 0 0 1rem;
+    }
+    form { display: grid; gap: 0.95rem; }
+    label, .legend {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+    .req { color: var(--rose); margin-left: 0.15rem; }
+    input[type="text"], input[type="tel"], input[type="email"], select, textarea {
+      width: 100%;
+      appearance: none;
+      border: 1px solid #e1d0bf;
+      background: #fff;
+      border-radius: 12px;
+      padding: 0.75rem 0.85rem;
+      font: inherit;
+      color: inherit;
+    }
+    textarea { min-height: 6rem; resize: vertical; }
+    input:focus, select:focus, textarea:focus {
+      outline: 2px solid var(--gold);
+      outline-offset: 1px;
+      border-color: var(--gold);
+    }
+    .choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.55rem;
+    }
+    .choices.four { grid-template-columns: 1fr 1fr; }
+    .choice {
+      position: relative;
+      display: block;
+    }
+    .choice input { position: absolute; opacity: 0; pointer-events: none; }
+    .choice span {
+      display: block;
+      text-align: center;
+      padding: 0.7rem 0.4rem;
+      border: 1px solid #e1d0bf;
+      border-radius: 999px;
+      background: #fff;
+    }
+    .choice input:checked + span {
+      background: var(--rose);
+      color: #fffdf8;
+      border-color: var(--rose);
+    }
+    .choice input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: 2px; }
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+    .panel {
+      background: #faf6f0;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 0.95rem 0.9rem 1rem;
+      display: grid;
+      gap: 0.9rem;
+    }
+    .panel[hidden], .field[hidden] { display: none !important; }
+    .meal {
+      padding: 0.85rem 0.95rem;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px dashed var(--gold);
+      color: var(--rose-deep);
+      font-weight: 600;
+      text-align: center;
+    }
+    .meal.invalid { border-color: var(--err); color: var(--err); }
+    .error {
+      color: var(--err);
+      font-size: 0.86rem;
+      margin: 0.3rem 0 0;
+      min-height: 0;
+    }
+    .form-error[hidden] { display: none; }
+    .form-error {
+      background: #fdecec;
+      border-radius: 12px;
+      padding: 0.7rem 0.85rem;
+      color: var(--err);
+    }
+    .actions { margin-top: 0.4rem; }
+    button[type="submit"] {
+      width: 100%;
+      border: 0;
+      border-radius: 999px;
+      padding: 0.95rem 1rem;
+      background: var(--rose);
+      color: #fffdf8;
+      font: inherit;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+    }
+    button[type="submit"]:hover { background: var(--rose-deep); }
+    button[type="submit"][disabled] { opacity: 0.65; cursor: not-allowed; }
+    .thanks {
+      text-align: center;
+      padding: 1.2rem 0.4rem 0.4rem;
+    }
+    .thanks p { color: var(--muted); font-size: 1.02rem; }
+    .hidden-page { display: none; }
+    .is-thanks .form-block, .is-thanks .event, .is-thanks .invite { display: none; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 1.4rem;
+    }
+    @media (min-width: 640px) {
+      .card { padding: 2.6rem 2.4rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <article class="card" id="app">
+      <p class="eyebrow">Wedding Invitation</p>
+      <h1>于睿 &amp; 子瑜</h1>
+      <p class="date-hero">2027年4月3日（星期六）　中午12:36</p>
+      <div class="flourish">✿</div>
+      <p class="invite">親愛的親朋好友您好：誠摯邀請您參加我們的婚禮，一同見證人生中最重要的時刻。為方便安排座位及餐點，敬請於 3 月 1 日前 完成回覆。期待與您相見，共享這份幸福與喜悅！于睿 &amp; 子瑜 敬邀</p>
+
+      <section class="event" aria-label="婚宴資訊">
+        <dl>
+          <div>
+            <dt>日期</dt>
+            <dd>2027年4月3日（星期六）</dd>
+          </div>
+          <div>
+            <dt>時間</dt>
+            <dd>中午12:36</dd>
+          </div>
+          <div>
+            <dt>地點</dt>
+            <dd>
+              濃園滿漢餐廳
+              <span class="addr">701台南市東區長榮路二段248號</span>
+              <a class="map-link" id="venue-map" href="https://www.google.com/maps/search/?api=1&query=%E6%BF%83%E5%9C%92%E6%BB%BF%E6%BC%A2%E9%A4%90%E5%BB%B3%20701%E5%8F%B0%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E9%95%B7%E6%A6%AE%E8%B7%AF%E4%BA%8C%E6%AE%B5248%E8%99%9F" target="_blank" rel="noopener noreferrer">開啟 Google 地圖</a>
+            </dd>
+          </div>
+          <div>
+            <dt>停車</dt>
+            <dd>
+              對面長榮女中裡面
+              <span class="addr">臺南市私立長榮女子高級中學，70143臺南市東區長榮路二段135號</span>
+              <a class="map-link" id="parking-map" href="https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8D%97%E5%B8%82%E7%A7%81%E7%AB%8B%E9%95%B7%E6%A6%AE%E5%A5%B3%E5%AD%90%E9%AB%98%E7%B4%9A%E4%B8%AD%E5%AD%B8%2070143%E8%87%BA%E5%8D%97%E5%B8%82%E6%9D%B1%E5%8D%80%E9%95%B7%E6%A6%AE%E8%B7%AF%E4%BA%8C%E6%AE%B5135%E8%99%9F" target="_blank" rel="noopener noreferrer">開啟停車場位置地圖</a>
+              <span class="note">地圖指向長榮女中校址，依邀約說明停車於校內。校內入口位置未能另行驗證，當日請依現場指示。</span>
+            </dd>
+          </div>
+          <div>
+            <dt>回覆</dt>
+            <dd>敬請於 3 月 1 日前完成回覆</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="form-block">
+        <div class="flourish">✿</div>
+        <h2>出席回覆</h2>
+        <p class="form-error" id="form-error" hidden role="alert"></p>
+        <form id="rsvp-form" novalidate>
+          <div class="field">
+            <label for="name">請問您的大名<span class="req">*</span></label>
+            <input id="name" name="name" type="text" autocomplete="name" required maxlength="80">
+            <p class="error" data-error-for="name"></p>
+          </div>
+          <fieldset>
+            <legend class="legend">您是誰的親友<span class="req">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="relation" value="新郎" required><span>新郎</span></label>
+              <label class="choice"><input type="radio" name="relation" value="新娘"><span>新娘</span></label>
+            </div>
+            <p class="error" data-error-for="relation"></p>
+          </fieldset>
+          <div class="field">
+            <label for="phone">聯絡電話<span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="30">
+            <p class="error" data-error-for="phone"></p>
+          </div>
+          <fieldset>
+            <legend class="legend">是否出席<span class="req">*</span></legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="attendance" value="會出席" required><span>會出席</span></label>
+              <label class="choice"><input type="radio" name="attendance" value="不克參加"><span>不克參加</span></label>
+            </div>
+            <p class="error" data-error-for="attendance"></p>
+          </fieldset>
+
+          <div class="panel" id="attend-panel" hidden>
+            <div class="field">
+              <label for="guestCount">出席人數（含本人）<span class="req">*</span></label>
+              <select id="guestCount" name="guestCount">
+                <option value="">請選擇</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <p class="error" data-error-for="guestCount"></p>
+            </div>
+            <div class="field">
+              <label for="childSeats">請問需要幾張兒童座椅（0表示不需要）<span class="req">*</span></label>
+              <select id="childSeats" name="childSeats"></select>
+              <p class="error" data-error-for="childSeats"></p>
+            </div>
+            <div class="field">
+              <label for="vegetarianCount">請問需要幾份素食（0表示皆為葷食）<span class="req">*</span></label>
+              <select id="vegetarianCount" name="vegetarianCount"></select>
+              <p class="error" data-error-for="vegetarianCount"></p>
+            </div>
+            <p class="meal" id="meal-summary" aria-live="polite">請先選擇出席人數</p>
+            <div class="field">
+              <label for="dietNotes">特殊飲食或過敏</label>
+              <textarea id="dietNotes" name="dietNotes" maxlength="500"></textarea>
+            </div>
+            <div class="field">
+              <label for="otherNeeds">其他需求</label>
+              <textarea id="otherNeeds" name="otherNeeds" maxlength="500"></textarea>
+            </div>
+          </div>
+
+          <fieldset>
+            <legend class="legend">請選擇您希望收到的喜帖類型<span class="req">*</span></legend>
+            <div class="choices four">
+              <label class="choice"><input type="radio" name="invitationType" value="電子喜帖" required><span>電子喜帖</span></label>
+              <label class="choice"><input type="radio" name="invitationType" value="實體喜帖"><span>實體喜帖</span></label>
+              <label class="choice"><input type="radio" name="invitationType" value="都需要"><span>都需要</span></label>
+              <label class="choice"><input type="radio" name="invitationType" value="都不需要"><span>都不需要</span></label>
+            </div>
+            <p class="error" data-error-for="invitationType"></p>
+          </fieldset>
+          <div class="field" id="email-field" hidden>
+            <label for="email">電子郵件<span class="req">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="120" inputmode="email">
+            <p class="error" data-error-for="email"></p>
+          </div>
+          <div class="field" id="address-field" hidden>
+            <label for="address">喜帖寄送地址<span class="req">*</span></label>
+            <textarea id="address" name="address" autocomplete="street-address" maxlength="300"></textarea>
+            <p class="error" data-error-for="address"></p>
+          </div>
+          <div class="field">
+            <label for="blessing">若願意，歡迎留下想對我們說的話或祝福，您的每一句話都會成為我們珍藏的回憶。</label>
+            <textarea id="blessing" name="blessing" maxlength="1000"></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" id="submit-btn">送出回覆</button>
+          </div>
+        </form>
+      </div>
+
+      <section class="thanks hidden-page" id="thanks" tabindex="-1" aria-live="polite">
+        <div class="flourish">✿</div>
+        <h2>回覆已收到</h2>
+        <p id="thanks-message"></p>
+      </section>
+    </article>
+    <footer>于睿 &amp; 子瑜　敬邀</footer>
+  </main>
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwtJ6EC-rWpf9WfZen8GZh9OqtSZeM_5aSdJ0g0iUWFMuNPpJ_3mtSw0QhDZnodiiPa/exec";
+    const THANKS = {
+      "會出席": "謝謝您的回覆！我們非常期待在婚宴上與您相見，共享這份幸福與喜悅。于睿 & 子瑜 敬謝。",
+      "不克參加": "謝謝您的回覆！很遺憾這次無法與您相聚，但仍非常感謝您的祝福與回覆。期待未來有機會再與您見面，祝您平安順心！"
+    };
+
+    const form = document.getElementById("rsvp-form");
+    const attendPanel = document.getElementById("attend-panel");
+    const guestCount = document.getElementById("guestCount");
+    const childSeats = document.getElementById("childSeats");
+    const vegetarianCount = document.getElementById("vegetarianCount");
+    const mealSummary = document.getElementById("meal-summary");
+    const emailField = document.getElementById("email-field");
+    const addressField = document.getElementById("address-field");
+    const emailInput = document.getElementById("email");
+    const addressInput = document.getElementById("address");
+    const formError = document.getElementById("form-error");
+    const submitBtn = document.getElementById("submit-btn");
+    const app = document.getElementById("app");
+    const thanks = document.getElementById("thanks");
+    const thanksMessage = document.getElementById("thanks-message");
+
+    let submitting = false;
+    let sent = false;
+
+    function selected(name) {
+      const el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : "";
+    }
+
+    function fillCountOptions(select, max, keep) {
+      const current = keep == null ? select.value : String(keep);
+      select.innerHTML = "";
+      const placeholder = document.createElement("option");
+      placeholder.value = "";
+      placeholder.textContent = max ? "請選擇" : "請先選擇出席人數";
+      select.appendChild(placeholder);
+      for (let i = 0; i <= max; i += 1) {
+        const opt = document.createElement("option");
+        opt.value = String(i);
+        opt.textContent = String(i);
+        select.appendChild(opt);
+      }
+      if (current !== "" && Number(current) <= max) select.value = current;
+    }
+
+    function attendanceCount() {
+      const n = Number(guestCount.value);
+      return Number.isInteger(n) && n >= 1 && n <= 5 ? n : 0;
+    }
+
+    function updateMealOptions() {
+      const max = attendanceCount();
+      fillCountOptions(childSeats, max);
+      fillCountOptions(vegetarianCount, max);
+      updateMealSummary();
+    }
+
+    function mealState() {
+      const count = attendanceCount();
+      const veg = vegetarianCount.value === "" ? null : Number(vegetarianCount.value);
+      const seats = childSeats.value === "" ? null : Number(childSeats.value);
+      const valid = count > 0 && veg != null && seats != null && veg >= 0 && seats >= 0 && veg <= count && seats <= count;
+      return {
+        count,
+        veg,
+        seats,
+        meat: valid ? count - veg : null,
+        valid
+      };
+    }
+
+    function updateMealSummary() {
+      const state = mealState();
+      mealSummary.classList.toggle("invalid", !state.valid && guestCount.value !== "");
+      if (!guestCount.value) {
+        mealSummary.textContent = "請先選擇出席人數";
+        return;
+      }
+      if (state.veg == null || state.seats == null) {
+        mealSummary.textContent = "請選擇素食份數與兒童座椅數";
+        return;
+      }
+      if (!state.valid) {
+        mealSummary.textContent = "素食份數與兒童座椅數不可超過出席人數";
+        return;
+      }
+      mealSummary.textContent = "葷食 " + state.meat + " 份、素食 " + state.veg + " 份、兒童座椅 " + state.seats + " 張";
+    }
+
+    function toggleAttendance() {
+      const attending = selected("attendance") === "會出席";
+      attendPanel.hidden = !attending;
+      guestCount.disabled = !attending;
+      childSeats.disabled = !attending;
+      vegetarianCount.disabled = !attending;
+      document.getElementById("dietNotes").disabled = !attending;
+      document.getElementById("otherNeeds").disabled = !attending;
+      if (!attending) {
+        guestCount.value = "";
+        childSeats.innerHTML = "";
+        vegetarianCount.innerHTML = "";
+        mealSummary.textContent = "請先選擇出席人數";
+        mealSummary.classList.remove("invalid");
+        document.getElementById("dietNotes").value = "";
+        document.getElementById("otherNeeds").value = "";
+      }
+    }
+
+    function toggleInvitation() {
+      const type = selected("invitationType");
+      const needEmail = type === "電子喜帖" || type === "都需要";
+      const needAddress = type === "實體喜帖" || type === "都需要";
+      emailField.hidden = !needEmail;
+      addressField.hidden = !needAddress;
+      emailInput.disabled = !needEmail;
+      addressInput.disabled = !needAddress;
+      if (!needEmail) emailInput.value = "";
+      if (!needAddress) addressInput.value = "";
+    }
+
+    function clearErrors() {
+      formError.hidden = true;
+      formError.textContent = "";
+      form.querySelectorAll("[data-error-for]").forEach((el) => { el.textContent = ""; });
+    }
+
+    function showError(name, message) {
+      const el = form.querySelector('[data-error-for="' + name + '"]');
+      if (el) el.textContent = message;
+    }
+
+    function isEmail(value) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    }
+
+    function validate() {
+      clearErrors();
+      const errors = [];
+      const name = document.getElementById("name").value.trim();
+      const relation = selected("relation");
+      const phone = form.phone.value.trim();
+      const attendance = selected("attendance");
+      const invitationType = selected("invitationType");
+      if (!name) { showError("name", "請填寫大名"); errors.push("請問您的大名"); }
+      if (!relation) { showError("relation", "請選擇親友關係"); errors.push("您是誰的親友"); }
+      if (!phone) { showError("phone", "請填寫聯絡電話"); errors.push("聯絡電話"); }
+      if (!attendance) { showError("attendance", "請選擇是否出席"); errors.push("是否出席"); }
+      let meal = null;
+      if (attendance === "會出席") {
+        meal = mealState();
+        if (!guestCount.value) { showError("guestCount", "請選擇出席人數"); errors.push("出席人數"); }
+        if (childSeats.value === "") { showError("childSeats", "請選擇兒童座椅數"); errors.push("兒童座椅"); }
+        if (vegetarianCount.value === "") { showError("vegetarianCount", "請選擇素食份數"); errors.push("素食份數"); }
+        if (guestCount.value && (childSeats.value !== "" || vegetarianCount.value !== "") && !meal.valid) {
+          showError("vegetarianCount", "不可超過出席人數");
+          showError("childSeats", "不可超過出席人數");
+          errors.push("餐點與座椅數量");
+        }
+      }
+      if (!invitationType) { showError("invitationType", "請選擇喜帖類型"); errors.push("喜帖類型"); }
+      if (invitationType === "電子喜帖" || invitationType === "都需要") {
+        const email = emailInput.value.trim();
+        if (!email) { showError("email", "請填寫電子郵件"); errors.push("電子郵件"); }
+        else if (!isEmail(email)) { showError("email", "請確認電子郵件格式"); errors.push("電子郵件"); }
+      }
+      if (invitationType === "實體喜帖" || invitationType === "都需要") {
+        if (!addressInput.value.trim()) { showError("address", "請填寫喜帖寄送地址"); errors.push("喜帖寄送地址"); }
+      }
+      return { ok: errors.length === 0, errors, meal, attendance, invitationType };
+    }
+
+    function buildPayload(result) {
+      const payload = {
+        requestId: (crypto.randomUUID && crypto.randomUUID()) || String(Date.now()) + Math.random(),
+        name: document.getElementById("name").value.trim(),
+        relation: selected("relation"),
+        phone: form.phone.value.trim(),
+        attendance: result.attendance,
+        invitationType: result.invitationType,
+        blessing: form.blessing.value.trim()
+      };
+      if (result.attendance === "會出席" && result.meal && result.meal.valid) {
+        payload.guestCount = result.meal.count;
+        payload.vegetarianCount = result.meal.veg;
+        payload.meatCount = result.meal.meat;
+        payload.childSeats = result.meal.seats;
+        payload.dietNotes = form.dietNotes.value.trim();
+        payload.otherNeeds = form.otherNeeds.value.trim();
+      }
+      if (result.invitationType === "電子喜帖" || result.invitationType === "都需要") {
+        payload.email = emailInput.value.trim();
+      }
+      if (result.invitationType === "實體喜帖" || result.invitationType === "都需要") {
+        payload.address = addressInput.value.trim();
+      }
+      return payload;
+    }
+
+    function showThanks(attendance) {
+      app.classList.add("is-thanks");
+      thanks.classList.remove("hidden-page");
+      thanksMessage.textContent = THANKS[attendance];
+      thanks.focus();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function endpoint() {
+      return window.__WEDDING_TEST_ENDPOINT || SCRIPT_URL;
+    }
+
+    async function submitPayload(payload) {
+      const url = endpoint();
+      if (!url || url === "YOUR_SCRIPT_URL") {
+        throw new Error("尚未設定回覆網址。請先依 README 將 Apps Script 網頁應用程式網址填入 index.html 的 SCRIPT_URL。");
+      }
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error("送出失敗，請稍後再試。");
+      const data = await res.json();
+      if (!data || data.result !== "success") {
+        throw new Error((data && data.error) || "送出失敗，請稍後再試。");
+      }
+    }
+
+    form.addEventListener("change", (event) => {
+      if (event.target.name === "attendance") toggleAttendance();
+      if (event.target.name === "invitationType") toggleInvitation();
+      if (event.target.id === "guestCount") updateMealOptions();
+      if (event.target.id === "vegetarianCount" || event.target.id === "childSeats") updateMealSummary();
+    });
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (submitting || sent) return;
+      const result = validate();
+      if (!result.ok) {
+        formError.hidden = false;
+        formError.textContent = "請先補正：" + result.errors.join("、");
+        formError.focus && formError.scrollIntoView({ behavior: "smooth", block: "center" });
+        return;
+      }
+      submitting = true;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "送出中…";
+      try {
+        await submitPayload(buildPayload(result));
+        sent = true;
+        showThanks(result.attendance);
+      } catch (err) {
+        submitting = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = "送出回覆";
+        formError.hidden = false;
+        formError.textContent = err.message || "送出失敗，請稍後再試。";
+      }
+    });
+
+    toggleAttendance();
+    toggleInvitation();
+    fillCountOptions(childSeats, 0);
+    fillCountOptions(vegetarianCount, 0);
+  </script>
+</body>
+</html>
