@@ -216,6 +216,7 @@
       color: var(--rose-deep);
       font-weight: 600;
       text-align: center;
+      white-space: pre-line;
     }
     .meal.invalid { border-color: var(--err); color: var(--err); }
     .error {
@@ -500,7 +501,7 @@
         mealSummary.textContent = "素食份數與兒童座椅數不可超過出席人數";
         return;
       }
-      mealSummary.textContent = "葷食 " + state.meat + " 份、素食 " + state.veg + " 份、兒童座椅 " + state.seats + " 張";
+      mealSummary.textContent = "葷食 " + state.meat + " 份\n素食 " + state.veg + " 份\n兒童座椅 " + state.seats + " 張";
     }
 
     function toggleAttendance() {
